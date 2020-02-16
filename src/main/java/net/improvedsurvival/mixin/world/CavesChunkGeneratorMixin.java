@@ -1,17 +1,15 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.world;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.ModifyConstant;
+import org.spongepowered.asm.mixin.injection.Constant;
 
 import net.minecraft.world.gen.chunk.CavesChunkGenerator;
 
 @Mixin(CavesChunkGenerator.class)
 public class CavesChunkGeneratorMixin {
-    @ModifyConstant(method = "getMaxY")
+    @ModifyConstant(method = "getMaxY", constant = { @Constant(intValue = 128) })
     protected int getMaxY(int variable) {
-        if(variable != 128)
-            return variable;
-  
         return 255;
     }
 }

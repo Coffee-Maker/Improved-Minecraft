@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.item;
 
 import org.spongepowered.asm.mixin.Mixin;
 import net.minecraft.item.ToolMaterials;

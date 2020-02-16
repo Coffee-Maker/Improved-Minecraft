@@ -12,6 +12,7 @@ import net.improvedsurvival.items.BottledFood;
 import net.improvedsurvival.items.FrostBerry;
 import net.improvedsurvival.items.TemperatureArmorItem;
 import net.improvedsurvival.items.TemperatureArmorMaterial;
+import net.improvedsurvival.mixin_data.HoeExtensions;
 import net.improvedsurvival.status_effects.Chilling;
 import net.improvedsurvival.status_effects.CustomStatusEffect;
 import net.fabricmc.api.ModInitializer;
@@ -46,6 +47,8 @@ import net.minecraft.world.gen.stateprovider.SimpleStateProvider;
 
 public class Isur implements ModInitializer {
     public static final String MODID = "isur";
+
+    public static final int seaLevel = 141;
 
     public static final ItemGroup ISUR = FabricItemGroupBuilder.build(new Identifier("isur", "improved_survival"), () -> new ItemStack(Blocks.FARMLAND));
 

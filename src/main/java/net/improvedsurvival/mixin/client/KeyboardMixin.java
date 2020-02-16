@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.client;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;

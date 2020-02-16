@@ -19,7 +19,7 @@ import net.improvedsurvival.Isur;
 
 public class ConfigManager{
 
-    private static final int version = 4;
+    private static final int version = 5;
 
     static JsonObject data;
 

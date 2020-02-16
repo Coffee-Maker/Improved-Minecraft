@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.entity;
 
 import java.util.ArrayList;
 import java.util.List;

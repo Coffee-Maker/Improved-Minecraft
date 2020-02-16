@@ -1,5 +1,5 @@
 {
-    "version": 4,
+    "version": 5,
     "glazings": [
         {
             "item": "minecraft:honey_bottle",
@@ -56,81 +56,18 @@
             "color": "d1fffd"
         }
     ],
-    "biomeTemperatures": [
+    "dimensionTemperatures": [
         {
-            "biome": "minecraft:desert",
-            "day": 95,
-            "night": 5
-        },
-        {
-            "biome": "minecraft:desert_hills",
-            "day": 95,
-            "night": 5
-        },
-        {
-            "biome": "minecraft:desert_lakes",
-            "day": 95,
-            "night": 5
-        },
-        {
-            "biome": "minecraft:savanna",
-            "day": 75,
-            "night": 25
-        },
-        {
-            "biome": "minecraft:savanna_plateau",
-            "day": 75,
-            "night": 25
-        },
-        {
-            "biome": "minecraft:shattered_savanna",
-            "day": 75,
-            "night": 25
-        },
-        {
-            "biome": "minecraft:shattered_savanna_plateau",
-            "day": 75,
-            "night": 25
-        },
-        {
-            "biome": "minecraft:badlands",
-            "day": 105,
-            "night": 15
-        },
-        {
-            "biome": "minecraft:badlands_plateau",
-            "day": 100,
-            "night": 15
-        },
-        {
-            "biome": "minecraft:wooded_badlands_plateau",
-            "day": 100,
-            "night": 15
-        },
-        {
-            "biome": "minecraft:eroded_badlands",
-            "day": 100,
-            "night": 15
-        },
-        {
-            "biome": "minecraft:modified_badlands_plateau",
-            "day": 100,
-            "night": 15
-        },
-        {
-            "biome": "minecraft:modified_wooded_badlands_plateau",
-            "day": 100,
-            "night": 15
-        },
-        {
-            "biome": "minecraft:nether",
-            "day": 135,
-            "night": 135
+            "biome": "overworld",
+            "temperature": 50
         },
         {
             "biome": "the_end",
-            "day": -50,
-            "night": -50
+            "temperature": -50
+        },
+        {
+            "biome": "the_nether",
+            "temperature": 150
         }
     ]
 }

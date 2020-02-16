@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.entity;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;

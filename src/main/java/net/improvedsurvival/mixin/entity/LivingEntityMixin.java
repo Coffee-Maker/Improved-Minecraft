@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.entity;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,15 +11,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.improvedsurvival.IsurMath;
 import net.improvedsurvival.Isur;
-import net.improvedsurvival.HeatSource;
 import net.improvedsurvival.interfaces.IEnvironmentalEntity;
 import net.improvedsurvival.items.TemperatureArmorMaterial;
 import net.improvedsurvival.config.json.ConfigManager;
 import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.containers.GlazingObject;
-import net.improvedsurvival.utility.BiomeTemp;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -35,19 +32,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.Biome;
+import net.minecraft.world.dimension.DimensionType;
 
 @Mixin(LivingEntity.class)
 public class LivingEntityMixin implements IEnvironmentalEntity {
-    
-    private static Map<Biome, BiomeTemp> BIOME_TEMPERATURES;
+    private static Map<DimensionType, Float> DIMENSION_TEMPERATURES;
 
     private float temperature = 50;
-    private float wetness;
     private long lastTemperatureDamageTime;
 
-    @Shadow
-    private ItemStack activeItemStack;
+    @Shadow private ItemStack activeItemStack;
 
     @Inject(at = @At("HEAD"), method = "consumeItem")
     protected void consumeItem(CallbackInfo callbackInfo) {
@@ -67,7 +61,7 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
                 }
             }
             
-            if(!entity.world.isClient){
+            if(!entity.world.isClient) {
                 if(PotionUtil.getPotion(activeItemStack).equals(Potions.WATER)){
                     addTemperature(temperature > 60 ? -15 : 0);
                 }
@@ -79,11 +73,8 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
     private void tickStatusEffects(CallbackInfo callbackInfo) {
         LivingEntity entity = (LivingEntity) (Object) this;
         if (entity instanceof PlayerEntity && !entity.world.isClient) {
-            float biomeTemp = getBiomeTemperature(entity.getBlockPos(), entity.world);
-            biomeTemp = MathHelper.lerp(MathHelper.clamp((entity.getBlockPos().getY() -30) / 30f, 0f, 1f), 50f, biomeTemp);
-            float ambientTemp = biomeTemp;
+            float dimensionTemp = getDimensionTemp(entity.getBlockPos(), entity.world);
             float armorTemp = 0;
-            float altitudeTemp = IsurMath.multiLerp(entity.getBlockPos().getY() /  32, 45, 15, 0f, -15f, -50f, -100);
             float heatRentetion = 0;
             float coldRetention = 0;
             
@@ -100,29 +91,9 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
                 }
             }
             
-            
-            if(entity.world.hasRain(entity.getBlockPos())){
-                ambientTemp -= entity.world.getBiome(entity.getBlockPos()).getRainfall() * 15;
-            }
-            
-            if (entity.checkWaterState()) {
-                wetness = 100;
-            }
-            
-            float heatSourceTemp = HeatSource.getAccumulatedTemperature(entity.getBlockPos(), entity.world);
-            heatSourceTemp -= temperature;
-            heatSourceTemp *= 2;
-            heatSourceTemp = MathHelper.clamp(heatSourceTemp, 0, 200);
-
-            wetness = MathHelper.lerp(0.0002f * ambientTemp, wetness, 0);
-            wetness = MathHelper.clamp(wetness, 0, 100);
-
-            float wetnessCooling = wetness * -0.3f;
-            
             float armorTarget = 1 - MathHelper.clamp(temperature / armorTemp, 0, 1);
-            float targetTemp = ambientTemp + wetnessCooling + altitudeTemp + heatSourceTemp + (armorTemp * armorTarget);
-            float temperatureShiftSpeed = 0.001f * (targetTemp < temperature ? 1-heatRentetion : 1-coldRetention);
-            temperatureShiftSpeed *= MathHelper.abs(temperature - targetTemp) / 10;
+            float targetTemp = dimensionTemp + (armorTemp * armorTarget);
+            float temperatureShiftSpeed = 0.025f * (targetTemp < temperature ? 1-heatRentetion : 1-coldRetention);
 
             temperature = MathHelper.lerp(temperatureShiftSpeed, temperature, targetTemp);
             temperature = MathHelper.clamp(temperature, -100, 100);
@@ -172,37 +143,28 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
                 entity.removeStatusEffect(Isur.HEATSTROKE);
                 lastTemperatureDamageTime = 0;
             }
-
-            //if(entity instanceof ClientPlayerEntity)
-                //LivingEntityMixinData.TEMPERATURE = temperature;
         }
     }
 
-    private float getBiomeTemperature(BlockPos pos, World world){
-        if(BIOME_TEMPERATURES == null){
-            BIOME_TEMPERATURES = new HashMap<Biome, BiomeTemp>();
-            ConfigManager.getArray("biomeTemperatures").forEach(b -> {
-                JsonObject j = (JsonObject)b;
-                BiomeTemp t = new BiomeTemp(j.get("day").getAsFloat(), j.get("night").getAsFloat());
-                Biome biome = Registry.BIOME.get(new Identifier(j.get("biome").getAsString()));
-                if(t != null && biome != null)
-                    BIOME_TEMPERATURES.put(biome, t);
+    private float getDimensionTemp(BlockPos pos, World world) {
+        if(DIMENSION_TEMPERATURES == null) {
+            DIMENSION_TEMPERATURES = new HashMap<DimensionType, Float>();
+            ConfigManager.getArray("dimensionTemperatures").forEach(b -> {
+                JsonObject j = (JsonObject) b;
+                float t = j.get("temperature").getAsFloat();
+                DimensionType biome = Registry.DIMENSION_TYPE.get(new Identifier(j.get("biome").getAsString()));
+                    DIMENSION_TEMPERATURES.put(biome, t);
             });
         }
 
-
-        Biome b = world.getBiome(pos);
-        float timeTemp = (world.getTimeOfDay() % 24000) / 6000f;
-        timeTemp = IsurMath.multiLerp(timeTemp, 0.5f, 1, 0.5f, 0, 0.5f);
-        if(BIOME_TEMPERATURES.containsKey(b)){
-            BiomeTemp t = BIOME_TEMPERATURES.get(b);
-            return MathHelper.lerp(timeTemp,t.night, t.day); 
-        }
-        return (b.getTemperature() + 0.25f) * (40 * (timeTemp + 0.5f));
+        DimensionType b = world.getDimension().getType();
+        if(DIMENSION_TEMPERATURES.containsKey(b))
+            return DIMENSION_TEMPERATURES.get(b);
+        return 50f;
     }
 
     @Override
-    public void addTemperature(final float amount){
+    public void addTemperature(final float amount) {
         temperature += amount;
         temperature = MathHelper.clamp(temperature, -100, 100);
     }
@@ -213,25 +175,8 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
     }
 
     @Override
-    public void addWetness(float amount) {
-        wetness += amount;
-        wetness = MathHelper.clamp(wetness, 0, 100);
-    }
-
-    @Override
-    public float getWetness() {
-        return wetness;
-    }
-
-    @Override
     public void setTemperature(float amount) {
         temperature = amount;
         temperature = MathHelper.clamp(temperature, -100, 100);
-    }
-
-    @Override
-    public void setWetness(float amount) {
-        wetness = amount;
-        wetness = MathHelper.clamp(wetness, 0, 100);
     }
 }

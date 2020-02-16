@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin;
+package net.improvedsurvival.mixin.item;
 
 import java.util.List;
 import java.util.function.Consumer;

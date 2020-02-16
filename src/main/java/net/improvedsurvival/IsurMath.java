@@ -18,4 +18,8 @@ public class IsurMath {
 
         return MathHelper.lerp(delta, params[index], params[index+1]);
     }
+
+    public static float remap(float beforeLow, float beforeHigh, float afterLow, float afterHigh, float value){
+        return afterLow + (value - beforeLow) * (afterHigh - afterLow) / (beforeHigh - beforeLow);
+    }
 }
