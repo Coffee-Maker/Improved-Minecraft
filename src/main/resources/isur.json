@@ -1,0 +1,136 @@
+{
+    "version": 4,
+    "glazings": [
+        {
+            "item": "minecraft:honey_bottle",
+            "effect": "minecraft:absorption",
+            "duration": 600,
+            "amplifier": 0,
+            "color": "ffbdc7"
+        },
+        {
+            "item": "isur:sweet_berry_jam_bottle",
+            "saturation": 3,
+            "color": "ffd1d1"
+        },
+        {
+            "item": "minecraft:pufferfish",
+            "effect": "minecraft:levitation",
+            "duration": 100,
+            "amplifier": 0,
+            "color": "d1d2ff"
+        },
+        {
+            "item": "minecraft:phantom_membrane",
+            "effect": "minecraft:slow_falling",
+            "duration": 300,
+            "amplifier": 0,
+            "color": "d1d2ff"
+        },
+        {
+            "item": "minecraft:sugar",
+            "effect": "minecraft:speed",
+            "duration": 300,
+            "amplifier": 1,
+            "color": "f5f5ff"
+        },
+        {
+            "item": "minecraft:slime_ball",
+            "effect": "minecraft:jump_boost",
+            "duration": 600,
+            "amplifier": 1,
+            "color": "d9ffda"
+        },
+        {
+            "item": "minecraft:glowstone_dust",
+            "effect": "minecraft:glowing",
+            "duration": 600,
+            "amplifier": 0,
+            "color": "fffdd9"
+        },
+        {
+            "item": "isur:frost_berry_jam_bottle",
+            "effect": "isur:chilling",
+            "duration": 2400,
+            "amplifier": 0,
+            "color": "d1fffd"
+        }
+    ],
+    "biomeTemperatures": [
+        {
+            "biome": "minecraft:desert",
+            "day": 95,
+            "night": 5
+        },
+        {
+            "biome": "minecraft:desert_hills",
+            "day": 95,
+            "night": 5
+        },
+        {
+            "biome": "minecraft:desert_lakes",
+            "day": 95,
+            "night": 5
+        },
+        {
+            "biome": "minecraft:savanna",
+            "day": 75,
+            "night": 25
+        },
+        {
+            "biome": "minecraft:savanna_plateau",
+            "day": 75,
+            "night": 25
+        },
+        {
+            "biome": "minecraft:shattered_savanna",
+            "day": 75,
+            "night": 25
+        },
+        {
+            "biome": "minecraft:shattered_savanna_plateau",
+            "day": 75,
+            "night": 25
+        },
+        {
+            "biome": "minecraft:badlands",
+            "day": 105,
+            "night": 15
+        },
+        {
+            "biome": "minecraft:badlands_plateau",
+            "day": 100,
+            "night": 15
+        },
+        {
+            "biome": "minecraft:wooded_badlands_plateau",
+            "day": 100,
+            "night": 15
+        },
+        {
+            "biome": "minecraft:eroded_badlands",
+            "day": 100,
+            "night": 15
+        },
+        {
+            "biome": "minecraft:modified_badlands_plateau",
+            "day": 100,
+            "night": 15
+        },
+        {
+            "biome": "minecraft:modified_wooded_badlands_plateau",
+            "day": 100,
+            "night": 15
+        },
+        {
+            "biome": "minecraft:nether",
+            "day": 135,
+            "night": 135
+        },
+        {
+            "biome": "the_end",
+            "day": -50,
+            "night": -50
+        }
+    ]
+}

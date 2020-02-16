@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "wet=false": { "model": "isur:block/soil_farmland_dry" },
+        "wet=true": { "model": "isur:block/soil_farmland_wet" }
+    }
+}

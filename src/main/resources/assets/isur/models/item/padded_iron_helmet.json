@@ -1,0 +1,7 @@
+{
+    "parent": "item/generated",
+    "textures": {
+      "layer0": "isur:item/padded_iron_helmet",
+      "layer1": "isur:item/padded_iron_helmet_overlay"
+    }
+  }

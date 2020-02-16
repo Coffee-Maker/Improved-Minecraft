@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients":[
+        {
+            "item": "minecraft:iron_leggings"
+        },
+        {
+            "item": "minecraft:string"
+        },
+        {
+            "tag": "minecraft:wool"
+        }
+    ],
+    "result":
+    {
+        "item": "isur:padded_iron_leggings",
+        "count": 1
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients":[
+        {
+            "item": "minecraft:iron_boots"
+        },
+        {
+            "item": "minecraft:string"
+        },
+        {
+            "tag": "minecraft:wool"
+        }
+    ],
+    "result":
+    {
+        "item": "isur:padded_iron_boots",
+        "count": 1
+    }
+}

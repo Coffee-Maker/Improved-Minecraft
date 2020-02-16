@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "package": "net.improvedsurvival.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "CropBlockMixin",
+    "FarmlandBlockAccessor",
+    "FarmlandBlockMixin",
+    "HoeItemMixin",
+    "LivingEntityMixin",
+    "CactusMixin",
+    "ToolMaterialsMixin",
+    "ToolMaterialsAccessor",
+    "ItemMixin",
+    "ItemColorsMixin",
+    "ArmorFeatureRendererMixin",
+    "FurnaceMinecartEntityMixin",
+    "PlantBlockMixin",
+    "FeatureMixin",
+    "Biome$SettingsMixin",
+    "DimensionMixin",
+    "OverworldChunkGeneratorMixin",
+    "CavesChunkGeneratorMixin",
+    "CaveCarverMixin"
+  ],
+  "client": [
+    "KeyboardMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

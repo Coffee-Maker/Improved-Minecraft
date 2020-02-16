@@ -1,0 +1,33 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern":
+    [
+        "ppp",
+        "cbc",
+        "www"
+    ],
+    "key":
+    {
+        "p":
+        {
+            "tag": "minecraft:planks"
+        },
+        "c":
+        {
+            "item": "minecraft:cobblestone"
+        },
+        "b":
+        {
+            "item": "minecraft:glass_bottle"
+        },
+        "w":
+        {
+            "tag": "minecraft:logs"
+        }
+    },
+    "result":
+    {
+        "item": "isur:glazer",
+        "count": 1
+    }
+}

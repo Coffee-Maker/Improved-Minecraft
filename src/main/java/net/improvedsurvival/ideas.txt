@@ -1,0 +1,34 @@
+Compass:
+-True north
+-Banner point (r-click banner)
+-Spawn
+-player (r-click player)
+
+Glazings:
+Ghast tear -> levitation
+glowstone -> glowing
+honey bottle -> absorbtion
+jam ->
+slime ball -> jump boost
+sugar -> speed
+blaze powder -> warming
+Milk -> Removes all bad effects (Purifying?)
+
+water bottle splash should cool player
+axe damage nerf
+Glazer rotation
+make day night longer
+Glazer wait time
+Punch TNT to knock it around after it's been lit
+use for spider eyes
+
+Beacon changes:
+The material the beacon is made out of will change how long the effect lasts
+The material used to activate the beacon sets the level of tool that the beacon effects
+
+
+Water level: 142
+Biome depth offset: 3.7
+Depth base size: 9.5
+Height Scale: 800
+

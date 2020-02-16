@@ -1,0 +1,40 @@
+{
+    "variants": {
+        "wet=false": [
+            { "model": "isur:block/soil_dry" },
+            { "model": "isur:block/soil_dry", "x": 90 },
+            { "model": "isur:block/soil_dry", "x": 180 },
+            { "model": "isur:block/soil_dry", "x": 270 },
+            { "model": "isur:block/soil_dry", "y": 90 },
+            { "model": "isur:block/soil_dry", "y": 90, "x": 90 },
+            { "model": "isur:block/soil_dry", "y": 90, "x": 180 },
+            { "model": "isur:block/soil_dry", "y": 90, "x": 270 },
+            { "model": "isur:block/soil_dry", "y": 180 },
+            { "model": "isur:block/soil_dry", "y": 180, "x": 90 },
+            { "model": "isur:block/soil_dry", "y": 180, "x": 180 },
+            { "model": "isur:block/soil_dry", "y": 180, "x": 270 },
+            { "model": "isur:block/soil_dry", "y": 270 },
+            { "model": "isur:block/soil_dry", "y": 270, "x": 90 },
+            { "model": "isur:block/soil_dry", "y": 270, "x": 180 },
+            { "model": "isur:block/soil_dry", "y": 270, "x": 270 }
+        ],
+        "wet=true": [
+            { "model": "isur:block/soil_wet" },
+            { "model": "isur:block/soil_wet", "x": 90 },
+            { "model": "isur:block/soil_wet", "x": 180 },
+            { "model": "isur:block/soil_wet", "x": 270 },
+            { "model": "isur:block/soil_wet", "y": 90 },
+            { "model": "isur:block/soil_wet", "y": 90, "x": 90 },
+            { "model": "isur:block/soil_wet", "y": 90, "x": 180 },
+            { "model": "isur:block/soil_wet", "y": 90, "x": 270 },
+            { "model": "isur:block/soil_wet", "y": 180 },
+            { "model": "isur:block/soil_wet", "y": 180, "x": 90 },
+            { "model": "isur:block/soil_wet", "y": 180, "x": 180 },
+            { "model": "isur:block/soil_wet", "y": 180, "x": 270 },
+            { "model": "isur:block/soil_wet", "y": 270 },
+            { "model": "isur:block/soil_wet", "y": 270, "x": 90 },
+            { "model": "isur:block/soil_wet", "y": 270, "x": 180 },
+            { "model": "isur:block/soil_wet", "y": 270, "x": 270 }
+        ]
+    }
+}
