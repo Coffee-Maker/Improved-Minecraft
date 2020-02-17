@@ -23,27 +23,36 @@ public class RandomBlockMapperStructureProcessor extends StructureProcessor {
     private static final Gson gson = new Gson();
     private final BlockState sourceState;
     private final BlockState targetState;
-    private final float integrity;
+    private final BlockState backupState;
+    private final float probability;
  
     public RandomBlockMapperStructureProcessor(BlockState sourceState, BlockState targetState, float integrity) {
+        this(sourceState, targetState, integrity, sourceState);
+    }
+ 
+    public RandomBlockMapperStructureProcessor(BlockState sourceState, BlockState targetState, float integrity, BlockState backupState) {
         this.sourceState = sourceState;
         this.targetState = targetState;
-        this.integrity = integrity;
+        this.backupState = backupState;
+        this.probability = integrity;
     }
  
     public RandomBlockMapperStructureProcessor(Dynamic<?> dynamic) {
         this(
-            BlockState.deserialize(new Dynamic<JsonElement>(JsonOps.INSTANCE, gson.fromJson(dynamic.get("source_block").asString().get(), JsonElement.class))),
-            BlockState.deserialize(new Dynamic<JsonElement>(JsonOps.INSTANCE, gson.fromJson(dynamic.get("target_block").asString().get(), JsonElement.class))),
-            dynamic.get("integrity").asFloat(1.0f)
+            BlockState.deserialize(new Dynamic<JsonElement>(JsonOps.INSTANCE, gson.fromJson(dynamic.get("source_state").asString().get(), JsonElement.class))),
+            BlockState.deserialize(new Dynamic<JsonElement>(JsonOps.INSTANCE, gson.fromJson(dynamic.get("target_state").asString().get(), JsonElement.class))),
+            dynamic.get("probability").asFloat(1.0f),
+            BlockState.deserialize(new Dynamic<JsonElement>(JsonOps.INSTANCE, gson.fromJson(dynamic.get("backup_state").asString().get(), JsonElement.class)))
         );
     }
 
     @Override
     public StructureBlockInfo process(WorldView worldView, BlockPos pos, StructureBlockInfo structureBlockInfo, StructureBlockInfo structureBlockInfo2, StructurePlacementData placementData) {
         Random random = placementData.getRandom(structureBlockInfo2.pos);
-        return this.sourceState == structureBlockInfo2.state && random.nextFloat() < integrity
-            ? new StructureBlockInfo(structureBlockInfo2.pos, this.targetState, null)
+        return this.sourceState == structureBlockInfo2.state
+            ? (random.nextFloat() < probability
+                ? new StructureBlockInfo(structureBlockInfo2.pos, this.targetState, null)
+                : new StructureBlockInfo(structureBlockInfo2.pos, this.backupState, null))
             : structureBlockInfo2;
     }
     
@@ -55,10 +64,11 @@ public class RandomBlockMapperStructureProcessor extends StructureProcessor {
     @Override
     protected <T> Dynamic<T> method_16666(DynamicOps<T> dynamicOps) {
         return new Dynamic<T>(dynamicOps, dynamicOps.createMap(ImmutableMap.of(
-            dynamicOps.createString("source_block"), dynamicOps.createString(gson.toJson(BlockState.serialize(NbtOps.INSTANCE, this.sourceState).asString().get())),
-            dynamicOps.createString("target_block"), dynamicOps.createString(gson.toJson(BlockState.serialize(JsonOps.INSTANCE, this.targetState).asString().get())),
-            dynamicOps.createString("integrity"), dynamicOps.createFloat(this.integrity))
-        ));
+            dynamicOps.createString("source_state"), dynamicOps.createString(gson.toJson(BlockState.serialize(NbtOps.INSTANCE, this.sourceState).asString().get())),
+            dynamicOps.createString("target_state"), dynamicOps.createString(gson.toJson(BlockState.serialize(JsonOps.INSTANCE, this.targetState).asString().get())),
+            dynamicOps.createString("probability"), dynamicOps.createFloat(this.probability),
+            dynamicOps.createString("backup_state"), dynamicOps.createString(gson.toJson(BlockState.serialize(JsonOps.INSTANCE, this.backupState).asString().get()))
+        )));
     }
     
 }
