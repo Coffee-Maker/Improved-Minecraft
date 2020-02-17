@@ -12,12 +12,10 @@
     "item.ToolMaterialsMixin",
     "item.ToolMaterialsAccessor",
     "item.ItemMixin",
-    "item.ItemColorsMixin",
     "entity.FurnaceMinecartEntityMixin",
     "entity.LivingEntityMixin",
     "world.FeatureMixin",
     "world.Biome$SettingsMixin",
-    "world.DimensionMixin",
     "world.OverworldChunkGeneratorMixin",
     "world.CavesChunkGeneratorMixin",
     "world.CaveCarverMixin",
@@ -26,7 +24,9 @@
     "world.OceanMonumentGeneratorBaseMixin"
   ],
   "client": [
-    "client.KeyboardMixin"
+    "client.KeyboardMixin",
+    "client.ItemColorsMixin",
+    "world.DimensionMixin"
   ],
   "injectors": {
     "defaultRequire": 1

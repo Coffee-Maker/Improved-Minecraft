@@ -1,4 +1,4 @@
-package net.improvedsurvival.mixin.item;
+package net.improvedsurvival.mixin.client;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
