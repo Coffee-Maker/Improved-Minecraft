@@ -15,11 +15,13 @@ import net.improvedsurvival.items.TemperatureArmorMaterial;
 import net.improvedsurvival.mixin_data.HoeExtensions;
 import net.improvedsurvival.status_effects.Chilling;
 import net.improvedsurvival.status_effects.CustomStatusEffect;
+import net.improvedsurvival.util.RandomBlockMapperStructureProcessor;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.container.ContainerProviderRegistry;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.Material;
@@ -35,6 +37,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.sound.BlockSoundGroup;
+import net.minecraft.structure.processor.StructureProcessorType;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.world.gen.GenerationStep;
@@ -57,6 +60,7 @@ public class Isur implements ModInitializer {
     public static final Identifier GLAZER_CRAFTING = new Identifier(MODID, "glazer_crafting");
     public static final Soil SOIL = new Soil(FabricBlockSettings.of(Material.EARTH).ticksRandomly().hardness(0.5f).breakByTool(FabricToolTags.SHOVELS).build());
     public static final FrostBerryBush FROST_BERRY_BUSH = new FrostBerryBush(FabricBlockSettings.of(Material.PLANT).ticksRandomly().noCollision().sounds(BlockSoundGroup.SWEET_BERRY_BUSH).build());
+    public static final Block END_GROUND = new Block(FabricBlockSettings.of(Material.STONE).hardness(1.5f).resistance(6f).breakByTool(FabricToolTags.PICKAXES).build());
 
     public static final FoodComponent ROASTED_CARROT = new FoodComponent.Builder().hunger(5).saturationModifier(0.7f).build();
     public static final FoodComponent SWEET_BERRY_JAM_BOTTLE = new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build();
@@ -75,6 +79,8 @@ public class Isur implements ModInitializer {
     public static final Item PADDED_IRON_LEGGINGS = new TemperatureArmorItem(TemperatureArmorMaterial.PADDED_IRON, EquipmentSlot.LEGS, new Item.Settings().group(ISUR));
     public static final Item PADDED_IRON_BOOTS = new TemperatureArmorItem(TemperatureArmorMaterial.PADDED_IRON, EquipmentSlot.FEET, new Item.Settings().group(ISUR));
 
+    public static StructureProcessorType RANDOM_BLOCK_MAPPER;
+
     @Override
     public void onInitialize() {
         ConfigManager.loadConfig();
@@ -84,7 +90,8 @@ public class Isur implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MODID, "soil_farmland"), new BlockItem(SOIL_FARMLAND, new Item.Settings().group(ISUR)));
         Registry.register(Registry.ITEM, new Identifier(MODID, "soil"), new BlockItem(SOIL, new Item.Settings().group(ISUR)));
         Registry.register(Registry.ITEM, new Identifier(MODID, "glazer"), new BlockItem(GLAZER, new Item.Settings().group(ISUR)));
-
+        Registry.register(Registry.ITEM, new Identifier(MODID, "end_ground"), new BlockItem(END_GROUND, new Item.Settings().group(ISUR)));
+        
         // Food
         Registry.register(Registry.ITEM, new Identifier(MODID, "roasted_carrot"), new Item(new Item.Settings().group(ISUR).food(ROASTED_CARROT)));
         Registry.register(Registry.ITEM, new Identifier(MODID, "sweet_berry_jam_bottle"), new BottledFood(new Item.Settings().group(ISUR).food(SWEET_BERRY_JAM_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16), true));
@@ -102,20 +109,21 @@ public class Isur implements ModInitializer {
         Registry.register(Registry.BLOCK, new Identifier(MODID, "soil"), SOIL);
         Registry.register(Registry.BLOCK, new Identifier(MODID, "glazer"), GLAZER);
         Registry.register(Registry.BLOCK, new Identifier(MODID, "frost_berry_bush"), FROST_BERRY_BUSH);
+        Registry.register(Registry.BLOCK, new Identifier(MODID, "end_ground"), END_GROUND);
 
         // Containers
-        ContainerProviderRegistry.INSTANCE.registerFactory(GLAZER_CRAFTING,
-                (syncId, identifier, player, byteBuf) -> new GlazerContainer(syncId, player.inventory));
+        ContainerProviderRegistry.INSTANCE.registerFactory(GLAZER_CRAFTING, (syncId, identifier, player, byteBuf) -> new GlazerContainer(syncId, player.inventory));
 
         HoeExtensions.addTillableBlock(SOIL, SOIL_FARMLAND.getDefaultState());
 
         // Features
-        Registry.BIOME.stream().filter(b -> b.getTemperature() <= 0.05f).forEach(b ->
-        {
+        Registry.BIOME.stream().filter(b -> b.getTemperature() <= 0.05f).forEach(b -> {
             b.addFeature(GenerationStep.Feature.VEGETAL_DECORATION,
             Feature.RANDOM_PATCH.configure(FROST_BERRY_BUSH_CONFIG).createDecoratedFeature(Decorator.COUNT_HEIGHTMAP_DOUBLE.configure(new
             CountDecoratorConfig(1))));
         });
+
+        RANDOM_BLOCK_MAPPER = Registry.register(Registry.STRUCTURE_PROCESSOR, "random_block_mapper", RandomBlockMapperStructureProcessor::new);
     }
 
     static BlockState FROST_BERRY_BUSH_STATE = (BlockState)FROST_BERRY_BUSH.getDefaultState().with(FrostBerryBush.AGE, 3);

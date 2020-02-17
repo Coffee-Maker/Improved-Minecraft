@@ -1,6 +1,7 @@
 {
     "block.isur.soil": "Soil",
     "block.isur.soil_farmland": "Farmland Soil",
+    "block.isur.end_ground": "End Ground",
     "item.isur.roasted_carrot": "Roasted Carrot",
     "effect.isur.cold": "Cold",
     "effect.isur.frost_bite": "Frostbite",

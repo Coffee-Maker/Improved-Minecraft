@@ -1,0 +1,22 @@
+{
+    "variants": {
+        "": [
+            { "model": "isur:block/end_ground" },
+            { "model": "isur:block/end_ground", "x": 90 },
+            { "model": "isur:block/end_ground", "x": 180 },
+            { "model": "isur:block/end_ground", "x": 270 },
+            { "model": "isur:block/end_ground", "y": 90 },
+            { "model": "isur:block/end_ground", "y": 90, "x": 90 },
+            { "model": "isur:block/end_ground", "y": 90, "x": 180 },
+            { "model": "isur:block/end_ground", "y": 90, "x": 270 },
+            { "model": "isur:block/end_ground", "y": 180 },
+            { "model": "isur:block/end_ground", "y": 180, "x": 90 },
+            { "model": "isur:block/end_ground", "y": 180, "x": 180 },
+            { "model": "isur:block/end_ground", "y": 180, "x": 270 },
+            { "model": "isur:block/end_ground", "y": 270 },
+            { "model": "isur:block/end_ground", "y": 270, "x": 90 },
+            { "model": "isur:block/end_ground", "y": 270, "x": 180 },
+            { "model": "isur:block/end_ground", "y": 270, "x": 270 }
+        ]
+    }
+}

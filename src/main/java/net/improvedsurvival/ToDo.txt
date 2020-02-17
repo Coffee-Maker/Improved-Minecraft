@@ -7,7 +7,6 @@ Compass:
 Glazings:
 Milk -> Removes all bad effects (Purifying?)
 
-water bottle splash should cool player
 axe damage nerf
 Glazer rotation
 make day night longer
@@ -19,11 +18,43 @@ Beacon changes:
 The material the beacon is made out of will change how long the effect lasts
 The material used to activate the beacon sets the level of tool that the beacon effects
 
-Water level: 142
-Biome depth offset: 3.7
-Depth base size: 9.5
-Height Scale: 800
-
 Trees need to not look like poop
 Dungeon improvements
 Snow logging!
+
+Packed ice pockets in underground snow biomes
+
+Notes and ideas:
+
+The end needs to be beyond comprehension, it needs to have a sense of power. Right now, it's a floating rock with a dragon
+that we must assume is the king of all... Why the fuck to endermen attack it?
+
+Maybe we should go the Don't Starve rout here and imply more, make it mysterious... Statues of ancient ender beasts,
+ancient scripts that warp and change, maybe some item that repells the endermen but why? The idea is to sell the sense of 
+depth without adding any true mechanisms.
+
+What if the endermen are enslaved by the dragon and once the dragon has been defeated they are free? We could have it so that
+all the while the dragon is alive the endermen roam the world but once the dragon is dead the endermen are peaceful, perhaps
+friendly... Or maybe they no longer roam, maybe they vanish and are transported to a far away land, far beyond our reach.
+
+Maybe if you kill an enderman while the dragon is alive the dragon becomes weaker, perhaps if you kill endermen while the
+dragon is dead the hatred to the player builds and the dragon egg begins to crack and after a tipping point has been met,
+you and all who are around you are engulfed by the darkness and sent back to the end to face the beast once more, this time
+stronger.
+
+In Don't Starve there are layers to the caves, multitudes of depth that at first seem impossible to reach but as you learn
+more about the world and more about the stories of ancient beasts you are able to reach those lands with ready equiptment and
+knowledge of what is to come. It is then that you are faced with the before mythical beasts and once defeated after a hard
+extended duel, you are rewarded with not an item, not a stat boost, but with an emotional reward. The beast is released,
+it thanks the player and reminds them as they play that they made it. The moon may shine brighter, the endermen may give you 
+gifts, perhaps villagers stop to admire you.
+
+This is a big thing to think about but I think that with this in the game you'll really have something to progress towards. 
+It will also provide a retained sense of acomplishment after you've beaten the final boss.
+
+
+End Ground:
+End ground could be a dense stone that entraps the essence that makes endermen, glowing purple as the hatred of the player
+grows. As a hated player walks over the stone it glows purple, perhaps eyes pear up at the player? I also like the idea that
+endermen pick up these block at a much higher priority to any other block... Maybe they feel bad for the trapped end souls
+within the ground.

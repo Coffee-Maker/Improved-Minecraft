@@ -2,7 +2,7 @@ package net.improvedsurvival.blocks;
 
 import java.util.Random;
 
-import net.improvedsurvival.mixin.block.FarmlandBlockAccessor;
+import net.improvedsurvival.mixin.server.block.FarmlandBlockAccessor;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
