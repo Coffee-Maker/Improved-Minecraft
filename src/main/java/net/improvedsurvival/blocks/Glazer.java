@@ -11,19 +11,19 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class Glazer extends Block {
+public class Glazer extends DirectionalBlock {
 
-    public Glazer(Block.Settings settings) {
-        super(settings);
-     }
+   public Glazer(Block.Settings settings) {
+      super(settings);
+   }
 
-     @Override
-     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (world.isClient) {
-           return ActionResult.SUCCESS;
-        } else {
-           ContainerProviderRegistry.INSTANCE.openContainer(Isur.GLAZER_CRAFTING, player,  byteBuf -> {  });
-           return ActionResult.SUCCESS;
-        }
-     }
+   @Override
+   public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+      if (world.isClient) {
+         return ActionResult.SUCCESS;
+      } else {
+         ContainerProviderRegistry.INSTANCE.openContainer(Isur.GLAZER_CRAFTING, player,  byteBuf -> {  });
+         return ActionResult.SUCCESS;
+      }
+   }
 }

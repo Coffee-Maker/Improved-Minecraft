@@ -1,5 +1,8 @@
 {
     "variants": {
-        "": { "model": "isur:block/glazer" }
+        "facing=north": { "model": "isur:block/glazer" },
+        "facing=south": { "model": "isur:block/glazer", "y": 180 },
+        "facing=west":  { "model": "isur:block/glazer", "y": 270 },
+        "facing=east":  { "model": "isur:block/glazer", "y": 90 }
     }
 }

@@ -7,7 +7,6 @@ Compass:
 Glazings:
 Milk -> Removes all bad effects (Purifying?)
 
-axe damage nerf
 Glazer rotation
 make day night longer
 Glazer wait time
