@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:smelting",
+    "ingredient": {
+        "item": "minecraft:andesite"
+    },
+    "result": "minecraft:polished_andesite",
+    "experience": 0.3
+}
