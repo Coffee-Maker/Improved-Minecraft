@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "isur:block/palm_wood" },
+        "axis=z": { "model": "isur:block/palm_wood", "x": 90 },
+        "axis=x": { "model": "isur:block/palm_wood", "x": 90, "y": 90 }
+    }
+}

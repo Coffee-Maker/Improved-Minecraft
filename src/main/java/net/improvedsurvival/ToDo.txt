@@ -28,18 +28,10 @@ ender men should hold blocks above their head while it's raining
 cocao bean use
 
 palm stuff:
-button
-pressure plate
-slabs
-stairs
-fence
-fence gate
-wood
+sign
 leaves
 door
 trapdoor
-stripped wood and stripped log
-sign
 sapling
 
 Notes and ideas:

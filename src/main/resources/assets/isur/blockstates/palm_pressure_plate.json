@@ -1,0 +1,6 @@
+{
+    "variants": {
+        "powered=false": { "model": "isur:block/palm_pressure_plate" },
+        "powered=true": { "model": "isur:block/palm_pressure_plate_down" }
+    }
+}

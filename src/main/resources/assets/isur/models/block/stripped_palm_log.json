@@ -1,0 +1,7 @@
+{
+    "parent": "block/cube_column",
+    "textures": {
+        "end": "isur:block/stripped_palm_log_top",
+        "side": "isur:block/stripped_palm_log"
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "axis=y": { "model": "isur:block/stripped_palm_log" },
+        "axis=z": { "model": "isur:block/stripped_palm_log", "x": 90 },
+        "axis=x": { "model": "isur:block/stripped_palm_log", "x": 90, "y": 90 }
+    }
+}
