@@ -67,6 +67,7 @@ public class Isur implements ModInitializer {
     public static final FoodComponent FROST_BERRY_JAM_BOTTLE = new FoodComponent.Builder().hunger(3).saturationModifier(0.5f).build();
     public static final FoodComponent TOASTED_BREAD = new FoodComponent.Builder().hunger(7).saturationModifier(0.7f).build();
     public static final FoodComponent FROST_BERRIES = new FoodComponent.Builder().hunger(2).saturationModifier(0.1f).build();
+    public static final FoodComponent FRIED_EGG = new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build();
 
     public static final StatusEffect COLD;
     public static final StatusEffect FROST_BITE;
@@ -98,6 +99,7 @@ public class Isur implements ModInitializer {
         Registry.register(Registry.ITEM, new Identifier(MODID, "frost_berry_jam_bottle"), new BottledFood(new Item.Settings().group(ISUR).food(FROST_BERRY_JAM_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16), true));
         Registry.register(Registry.ITEM, new Identifier(MODID, "toasted_bread"), new Item(new Item.Settings().group(ISUR).food(TOASTED_BREAD)));
         Registry.register(Registry.ITEM, new Identifier(MODID, "frost_berries"), new FrostBerry(FROST_BERRY_BUSH, new Item.Settings().group(ISUR).food(FROST_BERRIES)));
+        Registry.register(Registry.ITEM, new Identifier(MODID, "fried_egg"), new Item(new Item.Settings().group(ISUR).food(FRIED_EGG)));
 
         Registry.register(Registry.ITEM, new Identifier(MODID, "padded_iron_helmet"), PADDED_IRON_HELMET);
         Registry.register(Registry.ITEM, new Identifier(MODID, "padded_iron_chestplate"), PADDED_IRON_CHESTPLATE);

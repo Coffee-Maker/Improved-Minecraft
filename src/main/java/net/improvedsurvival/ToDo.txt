@@ -23,6 +23,10 @@ Dungeon improvements
 Snow logging!
 
 Packed ice pockets in underground snow biomes
+Two slabs ontop of one another should make the full block variant
+Breaking grass with a hoe should increase the chance of it dropping seeds, maybe even seeds of different kinds?
+saddles should be craftable
+ender men should hold blocks above their head while it's raining
 
 Notes and ideas:
 
