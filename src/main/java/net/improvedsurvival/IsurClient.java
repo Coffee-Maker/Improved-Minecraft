@@ -2,6 +2,7 @@ package net.improvedsurvival;
 
 import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.containers.GlazerScreen;
+import net.improvedsurvival.registry.IsurBlocks;
 import net.improvedsurvival.rendering.PlayerOverlayIndicators;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -22,7 +23,7 @@ public class IsurClient implements ClientModInitializer
         ScreenProviderRegistry.INSTANCE.<GlazerContainer>registerFactory(Isur.GLAZER_CRAFTING, container -> new GlazerScreen(container, Isur.playerInv(), new TranslatableText("container.glazer", new Object[0])));
 
         HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderPumpkinOverlay());
-        BlockRenderLayerMap.INSTANCE.putBlock(Isur.FROST_BERRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.FROST_BERRY_BUSH, RenderLayer.getCutout());
 
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             if(!stack.getItem().isFood())
