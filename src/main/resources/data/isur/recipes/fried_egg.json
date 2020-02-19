@@ -1,0 +1,8 @@
+{
+    "type": "minecraft:smoking",
+    "ingredient": {
+        "item": "minecraft:egg"
+    },
+    "result": "isur:fried_egg",
+    "experience": 0.3
+}

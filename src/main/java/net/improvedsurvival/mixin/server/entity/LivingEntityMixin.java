@@ -11,12 +11,12 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.improvedsurvival.Isur;
-import net.improvedsurvival.interfaces.IEnvironmentalEntity;
-import net.improvedsurvival.items.TemperatureArmorMaterial;
 import net.improvedsurvival.config.json.ConfigManager;
 import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.containers.GlazingObject;
+import net.improvedsurvival.interfaces.IEnvironmentalEntity;
+import net.improvedsurvival.items.TemperatureArmorMaterial;
+import net.improvedsurvival.registry.IsurStatusEffects;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -102,10 +102,10 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
             if (temperature < 40 && temperature > 25) {
                 if (entity.world.getTime() - lastTemperatureDamageTime > 50) {
                     lastTemperatureDamageTime = entity.world.getTime();
-                    entity.addStatusEffect(new StatusEffectInstance(Isur.COLD, 1000, 0, false, false, true));
+                    entity.addStatusEffect(new StatusEffectInstance(IsurStatusEffects.COLD, 1000, 0, false, false, true));
                 }
-            } else if (temperature > 40 && entity.hasStatusEffect(Isur.COLD) || temperature < 25 && entity.hasStatusEffect(Isur.COLD)) {
-                entity.removeStatusEffect(Isur.COLD);
+            } else if (temperature > 40 && entity.hasStatusEffect(IsurStatusEffects.COLD) || temperature < 25 && entity.hasStatusEffect(IsurStatusEffects.COLD)) {
+                entity.removeStatusEffect(IsurStatusEffects.COLD);
                 lastTemperatureDamageTime = 0;
             }
 
@@ -114,10 +114,10 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
                 if (entity.world.getTime() - lastTemperatureDamageTime > 50) {
                     entity.damage(DamageSource.GENERIC, 2);
                     lastTemperatureDamageTime = entity.world.getTime();
-                    entity.addStatusEffect(new StatusEffectInstance(Isur.FROST_BITE, 1000, 0, false, false, true));
+                    entity.addStatusEffect(new StatusEffectInstance(IsurStatusEffects.FROST_BITE, 1000, 0, false, false, true));
                 }
-            } else if (temperature > 25 && entity.hasStatusEffect(Isur.FROST_BITE)) {
-                entity.removeStatusEffect(Isur.FROST_BITE);
+            } else if (temperature > 25 && entity.hasStatusEffect(IsurStatusEffects.FROST_BITE)) {
+                entity.removeStatusEffect(IsurStatusEffects.FROST_BITE);
                 lastTemperatureDamageTime = 0;
             }
 
@@ -125,10 +125,10 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
             if (temperature > 65 && temperature < 85) {
                 if (entity.world.getTime() - lastTemperatureDamageTime > 50) {
                     lastTemperatureDamageTime = entity.world.getTime();
-                    entity.addStatusEffect(new StatusEffectInstance(Isur.SWEATING, 1000, 0, false, false, true));
+                    entity.addStatusEffect(new StatusEffectInstance(IsurStatusEffects.SWEATING, 1000, 0, false, false, true));
                 }
-            } else if (temperature < 65 && entity.hasStatusEffect(Isur.SWEATING) || temperature > 85 && entity.hasStatusEffect(Isur.SWEATING)) {
-                entity.removeStatusEffect(Isur.SWEATING);
+            } else if (temperature < 65 && entity.hasStatusEffect(IsurStatusEffects.SWEATING) || temperature > 85 && entity.hasStatusEffect(IsurStatusEffects.SWEATING)) {
+                entity.removeStatusEffect(IsurStatusEffects.SWEATING);
                 lastTemperatureDamageTime = 0;
             }
 
@@ -137,10 +137,10 @@ public class LivingEntityMixin implements IEnvironmentalEntity {
                 if (entity.world.getTime() - lastTemperatureDamageTime > 50) {
                     entity.damage(DamageSource.GENERIC, 2);
                     lastTemperatureDamageTime = entity.world.getTime();
-                    entity.addStatusEffect(new StatusEffectInstance(Isur.HEATSTROKE, 1000, 0, false, false, true));
+                    entity.addStatusEffect(new StatusEffectInstance(IsurStatusEffects.HEATSTROKE, 1000, 0, false, false, true));
                 }
-            } else if (temperature < 85 && entity.hasStatusEffect(Isur.HEATSTROKE)) {
-                entity.removeStatusEffect(Isur.HEATSTROKE);
+            } else if (temperature < 85 && entity.hasStatusEffect(IsurStatusEffects.HEATSTROKE)) {
+                entity.removeStatusEffect(IsurStatusEffects.HEATSTROKE);
                 lastTemperatureDamageTime = 0;
             }
         }

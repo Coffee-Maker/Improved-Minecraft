@@ -5,7 +5,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.At;
 
-import net.improvedsurvival.Isur;
+import net.improvedsurvival.registry.IsurBlocks;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.PlantBlock;
 import net.minecraft.util.math.BlockPos;
@@ -15,7 +15,7 @@ import net.minecraft.world.BlockView;
 public class PlantBlockMixin{
     @Inject(at = @At("HEAD"), method = "canPlantOnTop", cancellable = true)
     public void canPlantOnTop(BlockState floor, BlockView view, BlockPos pos, CallbackInfoReturnable<Boolean> callbackInfo) {
-        if(floor.getBlock() == Isur.SOIL)
+        if(floor.getBlock() == IsurBlocks.SOIL)
             callbackInfo.setReturnValue(true);
     }
 }

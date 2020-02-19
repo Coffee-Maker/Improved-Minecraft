@@ -1,12 +1,8 @@
 {
-    "parent": "block/cube",
+    "parent": "block/orientable",
     "textures": {
-        "north": "isur:block/glazer_front",
-        "south": "isur:block/glazer_front",
-        "east": "isur:block/glazer_side",
-        "west": "isur:block/glazer_side",
-        "up": "isur:block/glazer_top",
-        "down": "isur:block/glazer_bottom",
-        "particle": "isur:block/glazer_front"
+        "top": "isur:block/glazer_top",
+        "front": "isur:block/glazer_front",
+        "side": "isur:block/glazer_side"
     }
 }

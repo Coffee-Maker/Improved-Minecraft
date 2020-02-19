@@ -7,7 +7,6 @@ Compass:
 Glazings:
 Milk -> Removes all bad effects (Purifying?)
 
-axe damage nerf
 Glazer rotation
 make day night longer
 Glazer wait time
@@ -23,6 +22,18 @@ Dungeon improvements
 Snow logging!
 
 Packed ice pockets in underground snow biomes
+Two slabs ontop of one another should make the full block variant
+ender men should hold blocks above their head while it's raining
+
+cocao bean use
+leaves should go white in cold areas
+cauldrons should fill in rain
+Bottles dispensed towards a cauldron should be filled not dispensed
+
+palm stuff:
+sign
+trapdoor
+sapling
 
 Notes and ideas:
 

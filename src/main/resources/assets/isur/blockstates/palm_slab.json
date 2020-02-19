@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "type=bottom": { "model": "isur:block/palm_slab" },
+        "type=top": { "model": "isur:block/palm_slab_top" },
+        "type=double": { "model": "isur:block/palm_planks" }
+    }
+}
