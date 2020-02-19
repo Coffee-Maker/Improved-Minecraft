@@ -29,6 +29,7 @@ public class IsurClient implements ClientModInitializer
         HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderPumpkinOverlay());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.FROST_BERRY_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_DOOR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_TRAPDOOR, RenderLayer.getCutout());
 
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             if(!stack.getItem().isFood())

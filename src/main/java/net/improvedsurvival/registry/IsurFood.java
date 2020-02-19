@@ -18,11 +18,11 @@ public class IsurFood {
     public static final FoodComponent FRIED_EGG = new FoodComponent.Builder().hunger(4).saturationModifier(0.5f).build();
 
     public static void registerFoods(){
-        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "roasted_carrot"), new Item(new Item.Settings().group(Isur.ISUR).food(ROASTED_CARROT)));
-        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "sweet_berry_jam_bottle"), new BottledFood(new Item.Settings().group(Isur.ISUR).food(SWEET_BERRY_JAM_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16), true));
-        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "frost_berry_jam_bottle"), new BottledFood(new Item.Settings().group(Isur.ISUR).food(FROST_BERRY_JAM_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16), true));
-        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "toasted_bread"), new Item(new Item.Settings().group(Isur.ISUR).food(TOASTED_BREAD)));
-        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "frost_berries"), new FrostBerry(IsurBlocks.FROST_BERRY_BUSH, new Item.Settings().group(Isur.ISUR).food(FROST_BERRIES)));
-        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "fried_egg"), new Item(new Item.Settings().group(Isur.ISUR).food(FRIED_EGG)));
+        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "roasted_carrot"), new Item(new Item.Settings().group(Isur.ISUR_GROUP).food(ROASTED_CARROT)));
+        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "sweet_berry_jam_bottle"), new BottledFood(new Item.Settings().group(Isur.ISUR_GROUP).food(SWEET_BERRY_JAM_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16), true));
+        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "frost_berry_jam_bottle"), new BottledFood(new Item.Settings().group(Isur.ISUR_GROUP).food(FROST_BERRY_JAM_BOTTLE).recipeRemainder(Items.GLASS_BOTTLE).maxCount(16), true));
+        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "toasted_bread"), new Item(new Item.Settings().group(Isur.ISUR_GROUP).food(TOASTED_BREAD)));
+        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "frost_berries"), new FrostBerry(IsurBlocks.FROST_BERRY_BUSH, new Item.Settings().group(Isur.ISUR_GROUP).food(FROST_BERRIES)));
+        Registry.register(Registry.ITEM, new Identifier(Isur.MODID, "fried_egg"), new Item(new Item.Settings().group(Isur.ISUR_GROUP).food(FRIED_EGG)));
     }
 }

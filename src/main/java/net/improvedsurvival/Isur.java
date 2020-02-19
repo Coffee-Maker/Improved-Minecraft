@@ -30,7 +30,7 @@ import net.minecraft.world.gen.stateprovider.SimpleStateProvider;
 public class Isur implements ModInitializer {
     public static final String MODID = "isur";
     public static final int seaLevel = 141;
-    public static final ItemGroup ISUR = FabricItemGroupBuilder.build(new Identifier("isur", "improved_survival"), () -> new ItemStack(Blocks.FARMLAND));
+    public static final ItemGroup ISUR_GROUP = FabricItemGroupBuilder.build(new Identifier("isur", "improved_survival"), () -> new ItemStack(Blocks.FARMLAND));
     public static final Identifier GLAZER_CRAFTING = new Identifier(Isur.MODID, "glazer_crafting");
     public static StructureProcessorType RANDOM_BLOCK_MAPPER;
     public static BlockState FROST_BERRY_BUSH_STATE = (BlockState)IsurBlocks.FROST_BERRY_BUSH.getDefaultState().with(FrostBerryBush.AGE, 3);
