@@ -21,8 +21,7 @@
     "server.world.CaveCarverMixin",
     "server.world.DefaultBiomeFeaturesMixin",
     "server.world.DesertTempleGeneratorMixin",
-    "server.world.OceanMonumentGeneratorBaseMixin",
-    "server.world.OakTreeFeatureMixin"
+    "server.world.OceanMonumentGeneratorBaseMixin"
   ],
   "client": [
     "client.KeyboardMixin",
