@@ -26,11 +26,12 @@ Two slabs ontop of one another should make the full block variant
 ender men should hold blocks above their head while it's raining
 
 cocao bean use
+leaves should go white in cold areas
+cauldrons should fill in rain
+Bottles dispensed towards a cauldron should be filled not dispensed
 
 palm stuff:
 sign
-leaves
-door
 trapdoor
 sapling
 

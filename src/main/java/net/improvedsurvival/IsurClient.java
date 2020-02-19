@@ -2,6 +2,7 @@ package net.improvedsurvival;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
 import net.fabricmc.fabric.api.event.client.ItemTooltipCallback;
@@ -10,6 +11,8 @@ import net.improvedsurvival.containers.GlazerScreen;
 import net.improvedsurvival.registry.IsurBlocks;
 import net.improvedsurvival.rendering.PlayerOverlayIndicators;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.color.item.ItemColors;
+import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.nbt.ListTag;
@@ -25,6 +28,7 @@ public class IsurClient implements ClientModInitializer
 
         HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderPumpkinOverlay());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.FROST_BERRY_BUSH, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_DOOR, RenderLayer.getCutout());
 
         ItemTooltipCallback.EVENT.register((stack, context, lines) -> {
             if(!stack.getItem().isFood())
@@ -42,6 +46,11 @@ public class IsurClient implements ClientModInitializer
                 lines.add(2, new LiteralText(Formatting.GRAY + "" + Formatting.ITALIC + "None"));
             }
         });
+
+        ItemColors itemColors = new ItemColors();
+
+        itemColors.register((stack, tintIndex) -> 0x37B600, IsurBlocks.PALM_LEAVES);
+        ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getFoliageColor(view, pos), IsurBlocks.PALM_LEAVES);
     }
 
     public static PlayerInventory playerInv(){

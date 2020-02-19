@@ -1,0 +1,7 @@
+{
+    "parent": "block/door_bottom_rh",
+    "textures": {
+        "bottom": "isur:block/palm_door_bottom",
+        "top": "isur:block/palm_door_top"
+    }
+}
