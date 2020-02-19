@@ -29,14 +29,12 @@ import net.minecraft.world.gen.stateprovider.SimpleStateProvider;
 
 public class Isur implements ModInitializer {
     public static final String MODID = "isur";
-
     public static final int seaLevel = 141;
-
     public static final ItemGroup ISUR = FabricItemGroupBuilder.build(new Identifier("isur", "improved_survival"), () -> new ItemStack(Blocks.FARMLAND));
-
     public static final Identifier GLAZER_CRAFTING = new Identifier(Isur.MODID, "glazer_crafting");
-
     public static StructureProcessorType RANDOM_BLOCK_MAPPER;
+    public static BlockState FROST_BERRY_BUSH_STATE = (BlockState)IsurBlocks.FROST_BERRY_BUSH.getDefaultState().with(FrostBerryBush.AGE, 3);
+    public static RandomPatchFeatureConfig FROST_BERRY_BUSH_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleStateProvider(FROST_BERRY_BUSH_STATE), new SimpleBlockPlacer())).cannotProject().tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).build();
 
     @Override
     public void onInitialize() {
@@ -59,7 +57,4 @@ public class Isur implements ModInitializer {
 
         RANDOM_BLOCK_MAPPER = Registry.register(Registry.STRUCTURE_PROCESSOR, "random_block_mapper", RandomBlockMapperStructureProcessor::new);
     }
-
-    static BlockState FROST_BERRY_BUSH_STATE = (BlockState)IsurBlocks.FROST_BERRY_BUSH.getDefaultState().with(FrostBerryBush.AGE, 3);
-    static RandomPatchFeatureConfig FROST_BERRY_BUSH_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleStateProvider(FROST_BERRY_BUSH_STATE), new SimpleBlockPlacer())).cannotProject().tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).build();
 }
