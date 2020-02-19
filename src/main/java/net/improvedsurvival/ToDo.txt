@@ -21,7 +21,6 @@ cocao bean use
 leaves should go white in cold areas
 cauldrons should fill in rain
 Bottles dispensed towards a cauldron should be filled not dispensed
-Glazer rotation
 make day night longer
 Glazer wait time
 Punch TNT to knock it around after it's been lit
