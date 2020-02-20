@@ -26,7 +26,7 @@ import net.minecraft.world.gen.decorator.Decorator;
 import net.minecraft.world.gen.feature.Feature;
 import net.minecraft.world.gen.feature.RandomPatchFeatureConfig;
 import net.minecraft.world.gen.placer.SimpleBlockPlacer;
-import net.minecraft.world.gen.stateprovider.SimpleStateProvider;
+import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 
 public class Isur implements ModInitializer {
     public static final String MODID = "isur";
@@ -35,7 +35,7 @@ public class Isur implements ModInitializer {
     public static final Identifier GLAZER_CRAFTING = new Identifier(Isur.MODID, "glazer_crafting");
     public static StructureProcessorType RANDOM_BLOCK_MAPPER;
     public static final BlockState FROST_BERRY_BUSH_STATE = IsurBlocks.FROST_BERRY_BUSH.getDefaultState().with(FrostBerryBush.AGE, 3);
-    public static final RandomPatchFeatureConfig FROST_BERRY_BUSH_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleStateProvider(FROST_BERRY_BUSH_STATE), new SimpleBlockPlacer()))
+    public static final RandomPatchFeatureConfig FROST_BERRY_BUSH_CONFIG = (new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(FROST_BERRY_BUSH_STATE), new SimpleBlockPlacer()))
             .cannotProject().tries(64).whitelist(ImmutableSet.of(Blocks.GRASS_BLOCK)).build();
     
     @Override
