@@ -1,5 +1,5 @@
 {
-    "version": 5,
+    "version": 7,
     "glazings": [
         {
             "item": "minecraft:honey_bottle",
@@ -54,6 +54,13 @@
             "duration": 2400,
             "amplifier": 0,
             "color": "d1fffd"
+        },
+        {
+            "item": "minecraft:milk_bucket",
+            "effect": "isur:purifying",
+            "duration": 300,
+            "amplifier": 0,
+            "color": "ffffff"
         }
     ],
     "dimensionTemperatures": [
