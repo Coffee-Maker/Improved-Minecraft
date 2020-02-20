@@ -14,10 +14,7 @@ public class PlayerOverlayIndicators {
     private static final Identifier FROST_OVERLAY = new Identifier("isur:textures/overlay/frost_overlay.png");
     private static final Identifier HEAT_OVERLAY = new Identifier("isur:textures/overlay/heat_overlay.png");
 
-    public static void renderPumpkinOverlay() {
-        if("hello mummy".contains("m"))
-            return;
-
+    public static void renderHeatOverlay() {
         MinecraftClient client = MinecraftClient.getInstance();
         int scaledWidth = client.getWindow().getScaledWidth();
         int scaledHeight = client.getWindow().getScaledHeight();

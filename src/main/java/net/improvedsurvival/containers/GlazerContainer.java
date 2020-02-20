@@ -207,9 +207,6 @@ public class GlazerContainer extends Container {
             result.setCount(1);
             String modifier = Registry.ITEM.getId(glazingSlot.getStack().getItem()).toString();
             ListTag listTag = result.getOrCreateTag().getList("Glazings", 8);
-            if(listTag == null){
-               listTag = (ListTag)result.getOrCreateTag().put("Glazings", new ListTag());
-            }
             listTag.clear();
             listTag.add(StringTag.of(modifier));
             result.getOrCreateTag().put("Glazings", listTag);

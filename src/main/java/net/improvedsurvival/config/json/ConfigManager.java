@@ -46,7 +46,6 @@ public class ConfigManager {
     }
 
     public static void loadConfig() {
-
         JsonParser jsonParser = new JsonParser();
 
         String dir = FabricLoader.getInstance().getConfigDirectory().getPath() + "\\" + Isur.MODID + ".json";

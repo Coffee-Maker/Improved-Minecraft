@@ -25,7 +25,7 @@ public class IsurClient implements ClientModInitializer
     public void onInitializeClient() {
         ScreenProviderRegistry.INSTANCE.<GlazerContainer>registerFactory(Isur.GLAZER_CRAFTING, container -> new GlazerScreen(container, playerInv(), new TranslatableText("container.glazer", new Object[0])));
 
-        HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderPumpkinOverlay());
+        HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderHeatOverlay());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.FROST_BERRY_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_TRAPDOOR, RenderLayer.getCutout());
