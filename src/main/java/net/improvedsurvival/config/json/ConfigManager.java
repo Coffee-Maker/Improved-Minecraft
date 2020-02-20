@@ -1,15 +1,5 @@
 package net.improvedsurvival.config.json;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -17,13 +7,17 @@ import com.google.gson.JsonParser;
 import net.fabricmc.loader.api.FabricLoader;
 import net.improvedsurvival.Isur;
 
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class ConfigManager {
     static JsonObject data;
 
     public static boolean getBool(String key) {
         if (data == null)
             loadConfig();
-        JsonElement e = (JsonElement) data.get(key);
+        JsonElement e = data.get(key);
         if (e == null)
             return false;
         return e.getAsBoolean();
@@ -32,7 +26,7 @@ public class ConfigManager {
     public static int getInt(String key) {
         if (data == null)
             loadConfig();
-        JsonElement e = (JsonElement) data.get(key);
+        JsonElement e = data.get(key);
         if (e == null)
             return -1;
         return e.getAsInt();
@@ -51,13 +45,10 @@ public class ConfigManager {
 
         if (!Files.exists(Paths.get(dir)))
             copyConfig(dir);
-
-        try (FileReader reader = new FileReader(dir)) {
+    
+        try(FileReader reader = new FileReader(dir)) {
             data = (JsonObject) jsonParser.parse(reader);
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch(IOException e) {
             e.printStackTrace();
         }
 
@@ -71,21 +62,21 @@ public class ConfigManager {
 
     private static int getLatestVersionNumber() {
         JsonParser jsonParser = new JsonParser();
-        String jsonResult = "";
+        StringBuilder jsonResult = new StringBuilder();
         try {
             InputStream jsonDir = ConfigManager.class.getClassLoader().getResource(Isur.MODID + ".json").openStream();
             byte[] buffer = new byte[1024];
             int lengthRead;
             while ((lengthRead = jsonDir.read(buffer)) > 0) {
                 for(int i = 0; i < lengthRead; i++)
-                    jsonResult += (char)buffer[i];
+                    jsonResult.append((char) buffer[i]);
             }
             jsonDir.close();
         } catch (IOException e1) {
             e1.printStackTrace();
         }
-        
-        JsonObject rootConfig = (JsonObject)jsonParser.parse(jsonResult);
+    
+        JsonObject rootConfig = (JsonObject) jsonParser.parse(jsonResult.toString());
 
         if(rootConfig == null)
             return -1;

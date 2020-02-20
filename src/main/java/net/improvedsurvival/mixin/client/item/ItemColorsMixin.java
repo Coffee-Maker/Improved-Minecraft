@@ -1,10 +1,5 @@
 package net.improvedsurvival.mixin.client.item;
 
-import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.At;
-import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.containers.GlazingObject;
 import net.improvedsurvival.items.TemperatureArmorItem;
@@ -16,6 +11,10 @@ import net.minecraft.item.Item;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.util.registry.Registry;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(ItemColors.class)
 public class ItemColorsMixin {
@@ -35,13 +34,9 @@ public class ItemColorsMixin {
             }
             return -1;
         }, Registry.ITEM.stream().filter(Item::isFood).toArray(Item[]::new));
-
-        itemColors.register((stack, tintIndex) -> {
-            return 0x60B50B;
-        }, Registry.ITEM.stream().filter(item -> item == IsurBlocks.PALM_LEAVES.asItem()).toArray(Item[]::new));
-
-        itemColors.register((stack, tintIndex) -> {
-            return tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack);
-        }, Registry.ITEM.stream().filter(item -> item instanceof TemperatureArmorItem).toArray(Item[]::new));
+    
+        itemColors.register((stack, tintIndex) -> 0x60B50B, Registry.ITEM.stream().filter(item -> item == IsurBlocks.PALM_LEAVES.asItem()).toArray(Item[]::new));
+    
+        itemColors.register((stack, tintIndex) -> tintIndex > 0 ? -1 : ((DyeableItem) stack.getItem()).getColor(stack), Registry.ITEM.stream().filter(TemperatureArmorItem.class::isInstance).toArray(Item[]::new));
     }
 }

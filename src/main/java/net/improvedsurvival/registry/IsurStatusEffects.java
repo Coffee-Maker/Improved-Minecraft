@@ -28,6 +28,6 @@ public class IsurStatusEffects {
     }
 
     private static StatusEffect register(int rawId, String id, StatusEffect entry) {
-        return (StatusEffect)Registry.register(Registry.STATUS_EFFECT, new Identifier(Isur.MODID, id), entry);
+        return Registry.register(Registry.STATUS_EFFECT, new Identifier(Isur.MODID, id), entry);
     }
 }

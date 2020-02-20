@@ -3,24 +3,8 @@ package net.improvedsurvival.registry;
 import net.fabricmc.fabric.api.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tools.FabricToolTags;
 import net.improvedsurvival.Isur;
-import net.improvedsurvival.blocks.FrostBerryBush;
-import net.improvedsurvival.blocks.Glazer;
-import net.improvedsurvival.blocks.IsurDoorBlock;
-import net.improvedsurvival.blocks.IsurPressurePlateBlock;
-import net.improvedsurvival.blocks.IsurStairsBlock;
-import net.improvedsurvival.blocks.IsurTrapdoorBlock;
-import net.improvedsurvival.blocks.IsurWoodButtonBlock;
-import net.improvedsurvival.blocks.Soil;
-import net.improvedsurvival.blocks.SoilFarmland;
-import net.minecraft.block.Block;
-import net.minecraft.block.FenceBlock;
-import net.minecraft.block.FenceGateBlock;
-import net.minecraft.block.LeavesBlock;
-import net.minecraft.block.LogBlock;
-import net.minecraft.block.Material;
-import net.minecraft.block.MaterialColor;
-import net.minecraft.block.PressurePlateBlock;
-import net.minecraft.block.SlabBlock;
+import net.improvedsurvival.blocks.*;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -52,10 +36,10 @@ public class IsurBlocks {
 
     private static Block register(String id, Block block) {
         Registry.register(Registry.ITEM, new Identifier(Isur.MODID, id), new BlockItem(block, new Item.Settings().group(Isur.ISUR)));
-        return (Block)Registry.register(Registry.BLOCK, new Identifier(Isur.MODID, id), block);
+		return Registry.register(Registry.BLOCK, new Identifier(Isur.MODID, id), block);
     }
 
     private static Block registerWithoutItem(String id, Block block) {
-        return (Block)Registry.register(Registry.BLOCK, new Identifier(Isur.MODID, id), block);
+		return Registry.register(Registry.BLOCK, new Identifier(Isur.MODID, id), block);
     }
 }

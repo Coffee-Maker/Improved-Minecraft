@@ -38,7 +38,7 @@ public class DefaultBiomeFeaturesMixin {
 			)
 	)
 	private static void fixCoalDecoratorConfig(Args args) {
-		args.setAll(NEW_COAL_COUNT * 200, args.get(1), args.get(2), NEW_COAL_MAXIMUM);
+		args.setAll(NEW_COAL_COUNT, args.get(1), args.get(2), NEW_COAL_MAXIMUM);
 	}
 	
 	@ModifyArgs(

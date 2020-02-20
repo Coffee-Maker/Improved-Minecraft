@@ -22,7 +22,7 @@ public class PlayerOverlayIndicators {
         float temperature = LivingEntityMixinData.TEMPERATURE;
 
         System.out.println(temperature);
-
+    
         RenderSystem.disableDepthTest();
         RenderSystem.depthMask(false);
         RenderSystem.defaultBlendFunc();
@@ -32,14 +32,14 @@ public class PlayerOverlayIndicators {
         Tessellator tessellator = Tessellator.getInstance();
         BufferBuilder bufferBuilder = tessellator.getBuffer();
         bufferBuilder.begin(7, VertexFormats.POSITION_TEXTURE);
-        bufferBuilder.vertex(0.0D, (double)scaledHeight, depth).texture(0.0F, 1.0F).next();
-        bufferBuilder.vertex((double)scaledWidth, (double)scaledHeight, depth).texture(1.0F, 1.0F).next();
-        bufferBuilder.vertex((double)scaledWidth, 0.0D, depth).texture(1.0F, 0.0F).next();
+        bufferBuilder.vertex(0.0D, scaledHeight, depth).texture(0.0F, 1.0F).next();
+        bufferBuilder.vertex(scaledWidth, scaledHeight, depth).texture(1.0F, 1.0F).next();
+        bufferBuilder.vertex(scaledWidth, 0.0D, depth).texture(1.0F, 0.0F).next();
         bufferBuilder.vertex(0.0D, 0.0D, depth).texture(0.0F, 0.0F).next();
         tessellator.draw();
         RenderSystem.depthMask(true);
         RenderSystem.enableDepthTest();
         RenderSystem.enableAlphaTest();
         RenderSystem.color4f(1.0F, 1.0F, 1.0F, 1.0F);
-     }
+    }
 }

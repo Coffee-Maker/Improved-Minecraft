@@ -22,6 +22,6 @@ public class IsurItems {
     }
 
     private static Item register(String id, Item item) {
-        return (Item)Registry.register(Registry.ITEM, new Identifier(Isur.MODID, id), item);
+        return Registry.register(Registry.ITEM, new Identifier(Isur.MODID, id), item);
     }
 }

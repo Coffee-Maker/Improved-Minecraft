@@ -24,11 +24,11 @@ public class CaveCarverMixin {
 	
 	@Inject(at = @At("HEAD"), method = "getTunnelSystemWidth", cancellable = true)
 	public void getTunnelSystemWidth(Random random, CallbackInfoReturnable<Float> cir) {
-		cir.setReturnValue(((float) Math.pow(random.nextDouble(), 2) * 9.5f) + 0.5f);
+		cir.setReturnValue((float) ((1 - Math.sqrt(1 - Math.pow(random.nextDouble(), 3))) * 9.5 + 0.5));
 	}
 	
 	@ModifyConstant(method = "getTunnelSystemHeightWidthRatio", constant = { @Constant(doubleValue = 1.0d) })
 	public double getTunnelSystemHeightWidthRatio(double variable) {
-		return 0.7d + (new Random()).nextFloat() * 0.6d;
+		return 0.5d + (new Random()).nextFloat() * 1d;
 	}
 }
