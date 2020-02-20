@@ -11,6 +11,7 @@ import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.mixin_data.HoeExtensions;
 import net.improvedsurvival.registry.IsurBlocks;
 import net.improvedsurvival.registry.IsurFood;
+import net.improvedsurvival.registry.IsurItems;
 import net.improvedsurvival.registry.IsurStatusEffects;
 import net.improvedsurvival.util.RandomBlockMapperStructureProcessor;
 import net.minecraft.block.BlockState;
@@ -44,6 +45,7 @@ public class Isur implements ModInitializer {
 
         IsurFood.registerFoods();
         IsurStatusEffects.registerEffects();
+        IsurItems.registerItems();
 
         // Containers
         ContainerProviderRegistry.INSTANCE.registerFactory(GLAZER_CRAFTING, (syncId, identifier, player, byteBuf) -> new GlazerContainer(syncId, player.inventory));
