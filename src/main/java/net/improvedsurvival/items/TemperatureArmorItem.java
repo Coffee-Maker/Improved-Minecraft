@@ -5,8 +5,8 @@ import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.DyeableArmorItem;
 
 public class TemperatureArmorItem extends DyeableArmorItem {
-
-    public TemperatureArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
-        super(material, slot, settings);
-    }
+	
+	public TemperatureArmorItem(ArmorMaterial material, EquipmentSlot slot, Settings settings) {
+		super(material, slot, settings);
+	}
 }

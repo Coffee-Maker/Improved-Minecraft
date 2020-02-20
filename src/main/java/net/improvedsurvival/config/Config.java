@@ -26,7 +26,7 @@
 //         glazings.add("minecraft:honey_bottle->minecraft:speed");
 //         glazings.add("minecraft:glowstone_dust->minecraft:glowing");
 //     }
-    
+
 //     @Override
 //     public String getModId(){
 //         return isur.MODID;

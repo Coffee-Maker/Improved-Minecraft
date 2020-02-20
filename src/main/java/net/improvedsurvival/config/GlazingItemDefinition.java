@@ -11,7 +11,7 @@
 // public class GlazingItemDefinition extends AbstractConfigListEntry<GlazingPairData> {
 
 //     private GlazingPairData value;
-    
+
 //     public GlazingItemDefinition(String fieldName, boolean requiresRestart) {
 //         super(fieldName, requiresRestart);
 //     }

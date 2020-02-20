@@ -7,25 +7,24 @@ import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.DirectionProperty;
 
-public abstract class DirectionalBlock extends Block{
-
-    public static final DirectionProperty FACING;
-
-    public DirectionalBlock(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
-    }
-
-    @Override
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING);
-     }
-
-    static {
-        FACING = HorizontalFacingBlock.FACING;
-    }
+public abstract class DirectionalBlock extends Block {
+	public static final DirectionProperty FACING;
+	
+	public DirectionalBlock(Settings settings) {
+		super(settings);
+	}
+	
+	@Override
+	public BlockState getPlacementState(ItemPlacementContext ctx) {
+		return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
+	}
+	
+	@Override
+	protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+		builder.add(FACING);
+	}
+	
+	static {
+		FACING = HorizontalFacingBlock.FACING;
+	}
 }

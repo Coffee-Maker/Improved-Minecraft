@@ -22,10 +22,12 @@
     "server.world.DefaultBiomeFeaturesMixin",
     "server.world.DesertTempleGeneratorMixin",
     "server.world.OceanMonumentGeneratorBaseMixin",
-    "server.world.OakTreeFeatureMixin"
+    "server.world.OakTreeFeatureMixin",
+    "server.world.StructurePlacementDataMixin",
+    "server.world.StructureMixin"
   ],
   "client": [
-    "client.KeyboardMixin",
+    "client.input.KeyboardMixin",
     "client.item.ItemColorsMixin",
     "client.world.DimensionMixin"
   ],

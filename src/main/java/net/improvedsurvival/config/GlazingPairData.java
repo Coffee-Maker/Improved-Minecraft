@@ -1,5 +1,5 @@
 package net.improvedsurvival.config;
 
-public class GlazingPairData{
-    
+public class GlazingPairData {
+
 }
