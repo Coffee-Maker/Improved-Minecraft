@@ -7,12 +7,6 @@ Compass:
 Glazings:
 Milk -> Removes all bad effects (Purifying?)
 
-Glazer rotation
-make day night longer
-Glazer wait time
-Punch TNT to knock it around after it's been lit
-a use for spider eyes
-
 Beacon changes:
 The material the beacon is made out of will change how long the effect lasts
 The material used to activate the beacon sets the level of tool that the beacon effects
@@ -20,19 +14,20 @@ The material used to activate the beacon sets the level of tool that the beacon 
 Trees need to not look like poop
 Dungeon improvements
 Snow logging!
-
 Packed ice pockets in underground snow biomes
-Two slabs ontop of one another should make the full block variant
+Two slabs ontop of one another should make the full block variant (crafting)
 ender men should hold blocks above their head while it's raining
-
 cocao bean use
 leaves should go white in cold areas
 cauldrons should fill in rain
 Bottles dispensed towards a cauldron should be filled not dispensed
+make day night longer
+Glazer wait time
+Punch TNT to knock it around after it's been lit
+a use for spider eyes
 
 palm stuff:
 sign
-trapdoor
 sapling
 
 Notes and ideas:

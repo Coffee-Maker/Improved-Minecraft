@@ -1,0 +1,6 @@
+{
+    "parent": "block/template_trapdoor_bottom",
+    "textures": {
+        "texture": "isur:block/palm_trapdoor"
+    }
+}

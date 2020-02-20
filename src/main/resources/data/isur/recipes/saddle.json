@@ -10,7 +10,7 @@
     {
         "l":
         {
-            "tag": "minecraft:leather"
+            "item": "minecraft:leather"
         },
         "i":
         {
@@ -19,7 +19,7 @@
     },
     "result":
     {
-        "item": "isur:saddle",
+        "item": "minecraft:saddle",
         "count": 1
     }
 }
