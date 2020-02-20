@@ -3,13 +3,11 @@ package net.improvedsurvival;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.ColorProviderRegistry;
-import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screen.ScreenProviderRegistry;
 import net.fabricmc.fabric.api.event.client.ItemTooltipCallback;
 import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.containers.GlazerScreen;
 import net.improvedsurvival.registry.IsurBlocks;
-import net.improvedsurvival.rendering.PlayerOverlayIndicators;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
@@ -25,7 +23,7 @@ public class IsurClient implements ClientModInitializer
     public void onInitializeClient() {
         ScreenProviderRegistry.INSTANCE.<GlazerContainer>registerFactory(Isur.GLAZER_CRAFTING, container -> new GlazerScreen(container, playerInv(), new TranslatableText("container.glazer", new Object[0])));
 
-        HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderHeatOverlay());
+        //HudRenderCallback.EVENT.register(t -> PlayerOverlayIndicators.renderHeatOverlay());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.FROST_BERRY_BUSH, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_DOOR, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(IsurBlocks.PALM_TRAPDOOR, RenderLayer.getCutout());
