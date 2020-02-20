@@ -11,7 +11,6 @@ import net.improvedsurvival.containers.GlazerScreen;
 import net.improvedsurvival.registry.IsurBlocks;
 import net.improvedsurvival.rendering.PlayerOverlayIndicators;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.client.color.world.BiomeColors;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.entity.player.PlayerInventory;
@@ -48,9 +47,6 @@ public class IsurClient implements ClientModInitializer
             }
         });
 
-        ItemColors itemColors = new ItemColors();
-
-        itemColors.register((stack, tintIndex) -> 0x37B600, IsurBlocks.PALM_LEAVES);
         ColorProviderRegistry.BLOCK.register((state, view, pos, tintIndex) -> BiomeColors.getFoliageColor(view, pos), IsurBlocks.PALM_LEAVES);
     }
 

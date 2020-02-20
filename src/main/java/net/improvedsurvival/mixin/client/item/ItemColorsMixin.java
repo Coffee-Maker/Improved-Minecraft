@@ -1,13 +1,14 @@
 package net.improvedsurvival.mixin.client.item;
 
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import net.improvedsurvival.containers.GlazerContainer;
 import net.improvedsurvival.containers.GlazingObject;
 import net.improvedsurvival.items.TemperatureArmorItem;
+import net.improvedsurvival.registry.IsurBlocks;
 import net.minecraft.client.color.block.BlockColors;
 import net.minecraft.client.color.item.ItemColors;
 import net.minecraft.item.DyeableItem;
@@ -34,6 +35,10 @@ public class ItemColorsMixin {
             }
             return -1;
         }, Registry.ITEM.stream().filter(item -> item.isFood()).toArray(Item[]::new));
+
+        itemColors.register((stack, tintIndex) -> {
+            return 0x60B50B;
+        }, Registry.ITEM.stream().filter(item -> item == IsurBlocks.PALM_LEAVES.asItem()).toArray(Item[]::new));
 
         itemColors.register((stack, tintIndex) -> {
             return tintIndex > 0 ? -1 : ((DyeableItem)stack.getItem()).getColor(stack);
